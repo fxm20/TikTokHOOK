@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="一个没啥用的Hook"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MyApplication"
+        tools:targetApi="31" >
+
+        <!-- 是否是xposed模块，xposed根据这个来判断是否是模块 -->
+        <meta-data
+            android:name="xposedmodule"
+            android:value="true" />
+        <!-- 模块描述，显示在xposed模块列表那里第二行 -->
+        <meta-data
+            android:name="xposeddescription"
+            android:value="这是一个修改抖音DPI的模块" />
+        <!-- 最低xposed版本号(lib文件名可知) -->
+        <meta-data
+            android:name="xposedminversion"
+            android:value="89" />
+        <!-- 模块作者 -->
+        <meta-data
+            android:name="xposedauthor"
+            android:value="BY：小航" />
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name=".Hook"
+            android:label="DPI Hook Module"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="de.robv.android.xposed.action.XPOSED_INIT" />
+            </intent-filter>
+        </service>
+
+    </application>
+
+</manifest>

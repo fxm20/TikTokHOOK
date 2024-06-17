@@ -1,0 +1,11 @@
+id=com.fxm.myapplication
+name=My DPI Hook
+version=1.0
+versionCode=1
+author=YourName
+description=This module hooks into TikTok (Douyin) to change the DPI dynamically.
+minSdk=21
+targetSdk=33
+
+# 默认勾选的包名
+defaultEnabledPackages=com.ss.android.ugc.aweme
